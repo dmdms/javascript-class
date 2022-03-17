@@ -46,6 +46,7 @@
         }
         var targetURL;
         // likeSite <--- case1, 2, 3 중 일치하면 실행
+        console.log(likeSite);
         switch(likeSite) {
             case "네이버":targetURL="naver.com";
             break;
@@ -55,9 +56,12 @@
             break;
             default: alert("네이버, 다음, 구글 중에서만 입력하세요.")
         }
-        // if(targetURL){
-        //     location.href="http://"+targetURL;
-        // } else {
+        if(targetURL){
+            location.href="http://"+targetURL;
+        } 
+        //else {
         //     location.reload(); //네이버, 다음, 구글 중에 입력할때까지 새로고침
         // }
     </script>
+</body>
+</html>
