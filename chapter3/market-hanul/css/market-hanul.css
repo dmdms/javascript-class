@@ -1,0 +1,149 @@
+@charset "utf-8";
+
+body {
+    font: 16px/1.5 "Nanum Gothic", sans-serif;
+    color: #333;
+}
+
+.d-none {
+    display: none;
+}
+
+a, a:link {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ========== header ========== */
+.header-wrap {
+    max-width: 1190px;
+    margin: 0 auto;
+}
+.top-links {
+    display: flex;
+    justify-content: flex-end;
+    font-size: 14px;
+}
+.top-links li {
+    margin-left: 10px;
+}
+#gnb {
+    display: flex;
+    justify-content: center;
+}
+#gnb li {
+    margin: 0 5px;
+}
+.logo {
+    text-align: center;
+    font-size: 2.5rem;
+    margin: 1rem 0;
+}
+
+/* ======hero====== */
+.hero { 
+    overflow: hidden;
+}
+.hero img {
+    /* max-width: 100%; */
+    object-fit: cover;
+    margin-top: 20px;
+}
+
+
+/* ======main====== */
+.main-wrap {
+    max-width: 1190px;
+    margin: 0 auto;
+}
+.main-wrap h2 {
+    text-align: center;
+    font-size: 1.250rem;
+    font-weight: bolder;
+    margin: 2rem 0;
+}
+
+.banner-form {
+    display: flex;
+    width: 60%;
+    margin: 0 auto;
+    display: flex;
+}
+/* .baner-form::after {
+    content:'';
+    display: block;
+    clear: both;
+}
+.banner-form .banner {
+    float: left;
+}
+.banner-form .form {
+    float: left;
+} */
+.banner {
+    width: 45%;
+}
+.banner img{
+    max-width: 100%;
+}
+.form {
+    width: 60%;
+    box-sizing: border-box;
+    padding: 0 0 0 5%;
+}
+.form label {
+    display: inline-block;
+    width: 150px;
+}
+.form li {
+    margin: 0 0 10px 0;
+}
+#user_id {
+    width: calc(100% - 180px);
+    padding: 10px 0;
+    text-indent: 1rem; /* 들여쓰기 */
+}
+#user_pw {
+    width: calc(100% - 180px);
+    padding: 10px 0;
+    text-indent: 1rem;
+}
+#go_login {
+    background: darkviolet;
+    color: white;
+    border: 0;
+    padding: 10px 20px;
+    margin: 0 20px 0 0;
+}
+#login-form li:nth-last-child(31){
+    display: flex;
+    justify-content: flex-end;
+}
+#login-form li:nth-last-child(1){
+    font-size: 12px;
+    border-top: 1px solid #ccc;
+    padding: 10px 0 0 0;
+}
+/* ======aside====== */
+
+
+/* ======footer====== */
+footer{
+    background: black;
+    color: white;
+}
+.footer-wrap {
+    text-align: center;
+    max-width: 1190px;
+    margin: 100px auto;
+    padding: 1rem 0;
+}
+.logo2 {
+    margin: 1rem 0;
+    font-size: 1.250rem;
+    font-weight: bold;
+}
