@@ -47,15 +47,24 @@
         var targetURL;
         // likeSite <--- case1, 2, 3 중 일치하면 실행
         console.log(likeSite);
-        switch(likeSite) {
-            case "네이버":targetURL="naver.com";
-            break;
-            case "다음":targetURL="daum.net";
-            break;
-            case "구글":targetURL="google.com";
-            break;
-            default: alert("네이버, 다음, 구글 중에서만 입력하세요.")
+        if(likeSite === "네이버" || likeSite.toLocaleLowerCase() === "naver") {
+            targetURL = "naver.com"
+        } else if(likeSite === "다음" || likeSite.toLocaleLowerCase() === "daum"){
+            targetURL = "daum.net"
+        } else if(likeSite === "구글" || likeSite.toLocaleLowerCase() === "google") {
+            targetURL = "google.com"
+        } else {
+            alert("네이버, 다음, 구글 중 하나를 입력해야합니다.");
         }
+        // switch(likeSite) {
+        //     case "네이버":targetURL="naver.com";
+        //     break;
+        //     case "다음":targetURL="daum.net";
+        //     break;
+        //     case "구글":targetURL="google.com";
+        //     break;
+        //     default: alert("네이버, 다음, 구글 중에서만 입력하세요.")
+        // }
         if(targetURL){
             location.href="http://"+targetURL;
         } 
