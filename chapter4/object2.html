@@ -35,10 +35,9 @@
         // function은 p.131 참고
         // var tv = []; 배열
 
-        tv.model;
         var tv = {
             model: "Hanul", // 키 key : 값
-            Color: "dark blue",
+            color: "dark blue",
             price: 1000000,
             info: function(){// 객체 내부의 function [메소드]
                 document.write("모델명 : "+this.model+", 색상 : "+this.color+", 가격 : "+this.price,"<br>");
@@ -56,6 +55,7 @@
         }; // 객체선언(리터럴)
 
         //객체의 메소드 실행(=호출)
+        tv.model = "NEO QLED H3000";
         tv.info(); // tv 객체에 있는 info라는 함수를 실행해! (정보를 보여줘)
         document.write("우리집 tv의 모델은 "+tv.model+"입니다.", "<br>");
     </script>
