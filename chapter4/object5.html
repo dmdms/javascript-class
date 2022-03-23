@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내장객체 &gt; 날짜객체</title>
+</head>
+<body>
+    <h1>특정 날짜를 Date객체를 이용해 설정, 관련 정보 추출</h1>
+    <p>2002년 월드컵 날짜와 관련된 정보를 출력하는 예제</p>
+    <script>
+        // p.93
+        var today = new Date(); // 객체 생성자 방식
+        // console.log(today);
+        var nowMonth = today.getMonth(), // 0~11 : 실제 월 -1
+        nowDate = today.getDate(),
+        nowDay = today.getDay();
+        // var a=1, b=0, c=3;
+        // 숫자 0 : 일요일, 1 : 월요일 ... 6 : 토요일
+        // 제어문 > 선택문
+        /*
+        switch(nowDay){
+            case 0: dayName = "일";
+            break;
+            case 1: dayName = "월";
+            break;
+            case 2: dayName = "화";
+            break;
+            case 3: dayName = "수";
+            break;
+            case 4: dayName = "목";
+            break;
+            case 5: dayName = "금";
+            break;
+            case 6: dayName = "토";
+            break;
+            default: alert("일시적인 네트워크 오류가 발생했습니다. \n 다시 시도해주세요.");
+        }*/
+
+        
+
+        // 배열객체 이용해서 요일정보 3-->수 (요일)로 출력하시오
+        // 힌트 1. 요일명이 저장된 배열 객체 생성, 초기화
+        // 2. 배열 객체의 이름에 접근방법 : [인덱스번호] vs .item()
+        // 3. 템플릿 문법 --> ${배열객체 이름[인덱스번호]}
+        // 4. nowDay 값이 <--> 배열객체 데이터 저장된 방 번호와 같음
+        
+        // var dayName = [
+        //     "일","월","화","수","목","금","토"
+        // ]
+        //document.write(`오늘은 ${nowMonth+1}월, ${nowDate}일, ${dayName[nowDay]}요일 입니다.`);
+
+
+        // if 조건문으로 수요일 출력
+        /*
+        if(nowDay == 0) {
+            nowDay = "일";
+        } else if(nowDay == 1) {
+            nowDay = "월";
+            ..
+
+        }
+        document.write(`오늘은 ${nowMonth+1}월, ${nowDate}일, ${nowDay}요일 입니다.`);
+        */
+        /*
+            요일: 0,1,2,3,4,5,6 <--> 요일 : "월","화",..."토" 변경
+            1) if 조건문중 조건이 여러개면 if else if
+            2) switch(case) : 0~6까지 제한된 조건 (범위가 좁다)
+            3) array(배열) : 배열 인덱스값 <---> 요일 : 0,1,2,3,4,5,6
+        */
+        var worldcup = new Date(2002, 4, 31),
+        theMonth = worldcup.getMonth(),
+        theDate = worldcup.getDate(),
+        theDay = worldcup.getDay();
+
+        document.write(`그날은 ${theMonth}월, ${theDate}일, ${theDay}요일입니다.`);
+    </script>
+</body>
+</html>
