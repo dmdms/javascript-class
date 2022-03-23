@@ -1,0 +1,137 @@
+@charset "utf-8";
+
+html {
+    height: 100vh;
+}
+
+body {
+    font : 16px/1.5 "Noto Sans KR", sans-serif;
+    background: url('../images/clock-bg.jpg') no-repeat center / cover;
+}
+
+a, a link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.d-none {
+    display: none;
+}
+
+/*=============header=============*/
+
+.header-top {
+    border-bottom: 1px solid #fff;
+    padding: 10px;
+}
+
+.header-top h1 {
+    font-size: 20px;
+}
+
+.top-wrap {
+    max-width: 1190px;
+    margin: 0 auto;
+    display: flex;
+    color: white;
+    justify-content: space-between;
+}
+
+.top-links {
+    display: flex;
+    column-gap: 20px; /*gird에 적용하는 속성이지만, flex에도 적용 */
+}
+
+.top-links li {
+    text-transform: capitalize;
+    font-size: 14px;
+}
+
+/*=============section=============*/
+.article-wrap {
+    width: 700px;
+    height: 500px;
+    position: absolute;
+    left: 60%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    text-align: right;
+}
+
+article h3, article p {
+    color: #fff;
+    text-shadow: 3px 3px 10px #000;
+}
+
+article h3 {
+    font-size: 2.5rem;
+    letter-spacing: -1px;
+}
+
+article p {
+    margin: 1rem 0;
+    font-style: italic;
+}
+
+#calc {
+    background: #72BAB3;
+    color: white;
+    padding: 1rem 4rem;
+    border: 0;
+    border-radius: 1.2rem;
+    opacity: 80%;
+    
+}
+
+/*=============dday form=============*/
+.form-list li {
+    display: flex;
+    align-items: center; /* 주축 - 교차축 정렬 */
+    margin: 0 0 1rem 0;
+    color: white;
+}
+
+.form-list label {
+    display: block;
+    flex: 1; /*1의 비율*/
+}
+
+.form-list li input {
+    flex: 9;
+}
+
+.form-list li input::placeholder {
+    color: #ccc;
+}
+
+#user_year, #user_month, #user_date {
+    color: white;
+    text-indent: 1rem;
+    padding: 1rem 0;
+    background: none;
+    border: 1px solid white;
+}
+
+#dday_calc {
+    background: #72BAB3;
+    color: white;
+    border-radius: 10px;
+    flex: 50px;
+    padding: 1rem 0;
+    border: 0;
+}
+
+#dday_reset {
+    background: #ccc;
+    color: white;
+    border-radius: 10px;
+    flex: 50px;
+    padding: 1rem 0;
+    border: 0;
+}
+
+.form-list li:nth-last-child(1) {
+    justify-content: center;
+    column-gap: 15px;
+}
