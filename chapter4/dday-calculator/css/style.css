@@ -185,6 +185,13 @@ article p {
     .article-wrap p {
         font-size: 0.8rem;
     }
+    #user_year, #user_month, #user_date {
+        color: white;
+        text-indent: 1rem;
+        padding: 1rem 1rem 1rem 0;
+        background: none;
+        border: 1px solid white;
+    }
     
     
 }
