@@ -4,24 +4,34 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQzKbYWNJOoQQMo6FjoXo274lhmwGhQsgcR3nvM4SLasz8DjthdfEHpdFTNaKH0nayZWLc&usqp=CAU">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css" rel="stylesheet">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/72551b6a36.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
+    
     <title>디데이 계산기</title>
 </head>
 <body>
+    <div id="result_pop" class="d-none">
+        <h1>예정일까지</h1>
+        <p id="d_day"></p>
+        <p>남았습니다.</p>
+    </div>
     <header>
         <div class="header-top">
             <div class="top-wrap">
-                <h1>D-day 계산기</h1>
+                <h1>D-day</h1>
                 <ul class="top-links">
                     <li><a href="#"><i class="fa-regular fa-circle-user"></i>home</a></li>
                     <li><a href="#"><i class="fa-regular fa-user"></i>join</a></li>
                     <li><a href="#"><i class="fa-regular fa-diagram-nested"></i>sitemap</a></li>
                 </ul>
+                <div id="burger" class="d-none">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
             </div>
         </div>
     </header>

@@ -37,6 +37,7 @@ a, a link {
     justify-content: space-between;
 }
 
+
 .top-links {
     display: flex;
     column-gap: 20px; /*gird에 적용하는 속성이지만, flex에도 적용 */
@@ -48,8 +49,9 @@ a, a link {
 }
 
 /*=============section=============*/
-.article-wrap {
-    width: 700px;
+
+.article-wrap, #result_pop {
+    max-width: 700px;
     height: 500px;
     position: absolute;
     left: 60%;
@@ -58,7 +60,24 @@ a, a link {
     z-index: 100;
     text-align: right;
 }
-
+#result_pop {
+    z-index: 1000;
+    left: 61%;
+    background: rgba(255,255,255,1);
+    border-radius: 1rem;
+    text-align: center;
+}
+#result_pop h1 {
+    font-size: 2rem;
+    margin: 9rem 0 1rem 0;
+}
+#result_pop p {
+    font-size: 1.5rem;
+}
+#d_day strong{
+    color: #72BAB3;
+    font-weight: 900;
+}
 article h3, article p {
     color: #fff;
     text-shadow: 3px 3px 10px #000;
@@ -94,11 +113,12 @@ article p {
 
 .form-list label {
     display: block;
-    flex: 1; /*1의 비율*/
+    flex: 1.2; /*1의 비율*/
+    margin-right: 20px;
 }
 
 .form-list li input {
-    flex: 9;
+    flex: 5;
 }
 
 .form-list li input::placeholder {
@@ -108,7 +128,7 @@ article p {
 #user_year, #user_month, #user_date {
     color: white;
     text-indent: 1rem;
-    padding: 1rem 0;
+    padding: 1rem 15rem 1rem 0;
     background: none;
     border: 1px solid white;
 }
@@ -117,7 +137,7 @@ article p {
     background: #72BAB3;
     color: white;
     border-radius: 10px;
-    flex: 50px;
+    width: 20px;
     padding: 1rem 0;
     border: 0;
 }
@@ -126,7 +146,7 @@ article p {
     background: #ccc;
     color: white;
     border-radius: 10px;
-    flex: 50px;
+    width: 20px;
     padding: 1rem 0;
     border: 0;
 }
@@ -134,4 +154,58 @@ article p {
 .form-list li:nth-last-child(1) {
     justify-content: center;
     column-gap: 15px;
+}
+
+
+/*=============미디어쿼리 (기존 스타일 마지막)=============*/
+@media screen and (max-width: 480px) { /*모바일 디바이스 크기*/
+     .top-wrap {
+        max-width: 100%;
+        padding: 0 1rem;
+        align-items: center;
+    }
+    .top-wrap h1 {
+        font-size: 1.5rem;
+    }
+    #burger {
+        display: inline-block;
+    }
+    .top-links {
+        display: none;
+    }
+    .article-wrap {
+        width: 300px;
+        max-width: 80%;
+        left: 50%;
+        margin-top: 40px;
+    }
+    .article-wrap h3 {
+        font-size: 1.750rem;
+    }
+    .article-wrap p {
+        font-size: 0.8rem;
+    }
+    
+    
+}
+
+@media screen and (max-width: 320px) {
+    .article-wrap {
+        width: 300px;
+        max-width: 90%;
+    }
+    
+}
+
+@media screen and (max-width: 375px) {
+    .article-wrap {
+        width: 350px;
+        max-width: 90%;
+    }
+}
+@media screen and (max-width: 425px) {
+    .article-wrap {
+        width: 400px;
+        max-width: 90%;
+    }
 }
