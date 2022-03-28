@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>캐러셀</title>
+    <style>
+        body{
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .gallery-body {
+            display: flex;
+        }
+        #prev, #next {
+            border: 0;
+            background-color: rosybrown;
+            height: 30px;
+            margin: 135px 10px;
+            border-radius: 30px;
+            padding: 0 10px;
+        }
+        #count {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>p. 141~142 함수정의문을 이용한 캐러셀</h1>
+    <h2>또는 이미지 갤러리, 슬라이드 만들기</h2>
+
+    <div class="gallery-body">
+        <button id="prev">이전</button>
+        <div id="gallery">
+            <img src="https://picsum.photos/600/300" alt="placeholder">
+            <div id="count">1 / 8</div>
+        </div>
+        <button id="next">다음</button>
+    </div>
+
+    <script>
+        // 사진 8개 <---> 가짜사진으로
+        // 이전 : 이전 사진으로
+        // 다음버튼 : 다음 사진으로 변경
+        // 버튼을 누르면 실행할 코드 덩어리 : 함수
+        // 사진으로 이전, 다음으로 바꾸는 코드 덩어리 : 함수
+
+        var num = 0; // 사진 8개중 0번 인덱스의 사진 번호
+        var gallery = document.querySelector("#gallery");
+        var imgTag = gallery.querySelector("img");
+        var imgURL = [
+            "https://picsum.photos/id/44/600/300",
+            "https://picsum.photos/id/22/600/300",
+            "https://picsum.photos/id/72/600/300",
+            "https://picsum.photos/id/89/600/300",
+            "https://picsum.photos/id/54/600/300",
+            "https://picsum.photos/id/631/600/300",
+            "https://picsum.photos/id/72/600/300",
+            "https://picsum.photos/id/87/600/300"
+        ]
+        var prevBTN = document.querySelector("#prev");
+        var nextBTN = document.querySelector("#next");
+
+        var imgCount = document.querySelector("#count");
+
+        prevBTN.addEventListener("click", prevImg);
+        nextBTN.addEventListener("click", nextImg);
+        imgInit(); // initialize : 초기화, 줄여서 init
+        function imgInit(){ // 문서가 로드되면 바로 실행하는 함수
+            setImg(0);
+        }
+        function prevImg(){
+           if(num == 0) num = 7;
+           num--;
+           setImg(num);
+           setCount(num);
+
+        }
+        function nextImg(){
+            if(num == 7) num = 0;
+            num++;
+            setImg(num);
+            setCount(num);
+
+        }
+        function setImg(index){
+            imgTag.setAttribute("src", imgURL[index])
+            
+        }
+        function setCount(num){
+            imgCount.innerText = `${num+1} / 8`;
+        }
+        
+    </script>
+</body>
+</html>

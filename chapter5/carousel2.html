@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>캐러셀</title>
+    <style>
+        .gallery-body {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+            position: relative;
+            
+        }
+        #prev, #next {
+            position: absolute;
+            z-index: 1000;
+            top: 50%;
+            width: 100px;
+            height: 100px;
+            border: 0;
+            border-radius: 50%;
+            background: rgba(0,0,0,.5);
+            color: #fff;
+            transform: translateY(-50%);
+        }
+        #prev {
+            left: -50px;
+            font-size: 0;
+        }
+        #prev::before {
+            content: '◀'; /* 윈도우 시작키 + . => emoji */
+            font-size: 25px;
+        }
+        #next {
+            right: -50px;
+            font-size: 0;
+
+        }
+        #next::before {
+            content: '▶';
+            font-size: 25px;
+        }
+        
+    </style>
+</head>
+<body>
+    <header>
+        <div class="site-name">사이트명</div>
+        <nav>
+            <ul id="gnb">
+                <li><a href="#">메뉴1</a></li>
+                <li><a href="#">메뉴2</a></li>
+                <li><a href="#">메뉴3</a></li>
+                <li><a href="#">메뉴4</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="gallery-body">
+        <div id="gallery">
+            <img src="https://picsum.photos/600/300" alt="placeholder">
+            <div id="count">1 / 8</div>
+        </div>        
+        <button id="prev">이전</button>
+        <button id="next">다음</button>
+    </div>
+
+    <script>
+        // 사진 8개 <---> 가짜사진으로
+        // 이전 : 이전 사진으로
+        // 다음버튼 : 다음 사진으로 변경
+        // 버튼을 누르면 실행할 코드 덩어리 : 함수
+        // 사진으로 이전, 다음으로 바꾸는 코드 덩어리 : 함수
+
+        var num = 0; // 사진 8개중 0번 인덱스의 사진 번호
+        var gallery = document.querySelector("#gallery");
+        var imgTag = gallery.querySelector("img");
+        // var imgURL = [
+        //     "https://picsum.photos/id/44/600/300",
+        //     "https://picsum.photos/id/22/600/300",
+        //     "https://picsum.photos/id/72/600/300",
+        //     "https://picsum.photos/id/89/600/300",
+        //     "https://picsum.photos/id/54/600/300",
+        //     "https://picsum.photos/id/631/600/300",
+        //     "https://picsum.photos/id/72/600/300",
+        //     "https://picsum.photos/id/87/600/300"
+        // ]
+        var prevBTN = document.querySelector("#prev");
+        var nextBTN = document.querySelector("#next");
+
+        var imgCount = document.querySelector("#count");
+
+        prevBTN.addEventListener("click", prevImg);
+        nextBTN.addEventListener("click", nextImg);
+        imgInit(); // initialize : 초기화, 줄여서 init
+        function imgInit(){ // 문서가 로드되면 바로 실행하는 함수
+            setImg(0);
+        }
+        function prevImg(){
+           if(num == 0) num = 7;
+           num--;
+           setImg(num);
+           setCount(num);
+
+        }
+        function nextImg(){
+            if(num == 7) num = 0;
+            num++;
+            setImg(num);
+            setCount(num);
+
+        }
+        function setImg(index){
+            var a = 10; // 지역변수 (함수 스코프 내부에 선언된 변수)
+            //imgTag.setAttribute("src", imgURL[index])
+            imgTag.setAttribute("src","https://picsum.photos/id/"+index+"/600/300")
+
+            
+        }
+        function setCount(num){
+            imgCount.innerText = `${num+1} / 8`;
+        }
+        
+    </script>
+</body>
+</html>

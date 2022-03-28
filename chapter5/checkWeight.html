@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수 &gt; 생성자 함수</title>
+</head>
+<body>
+    <h1>생성자 함수</h1>
+    <p>시간날짜 객체, 수학객체등을 생성할 때 객체 생성자 방식으로 생성했습니다.</p>
+    <p>이번에는 객체 생성자 함수를 이용해 객체를 생성합니다.</p>
+    <h2>객체를 생성하는 방법</h2>
+    <ul>
+        <li>생성자 함수 사용 : new</li>
+        <li>리터럴 사용 : [], {}</li>
+    </ul>
+    <h3>생성자 함수 규칙</h3>
+    <ol>
+        <li>반드시 대문자로 시작합니다.<br>예) MakePerson(){...}</li>
+        <li>반드시 new 연산자 사용 <br>예) var person1 = new MakePerson("철수",19,"남성")</li>
+    </ol>
+
+    <h3>생성자 함수 예시</h3>
+    <script>
+        // // 실행 컨텍스트
+        // alert(this.document.title); // 참조할 게 없으면? window 객체
+        // var person = {
+        //     name: "철수",
+        //     age: "19",
+        //     gender: "남성",
+        //     info: function(){ // 메소드 : 객체 내부 함수
+        //         alert(this.name)
+        //     }
+        // }
+        // person.info();
+
+        // p.149 코딩해보세요
+        // CheckWeight 라는 생성자 함수를 선언하고
+        // 이름, 키, 몸무게를 매개변수로 전달하면
+        // getInfo(), getResult() : 메소드로 정보를 입력받고, 출력
+
+        function CheckWeight(name, height, weight){
+            // setter : 설정 vs getter : 읽어오기
+            this.userName = name; // key : value
+            this.userHeight = height;
+            this.userWeight = weight;
+            this.minWeight;
+            this.maxWeight;
+            this.getInfo = function(){
+                var str = "";
+                str += "이름 : "+this.userName+", ";
+                str += "키 : "+this.userHeight+"cm, ";
+                str += "몸무게 : "+this.userWeight+"kg 입니다.";
+                return str;
+            }
+            this.getResult = function(){
+                // 적정체중 구하기 공식 : (키-100)*0.9
+                // 오차범위 = +5, -5 : minWeight, maxWeight
+                this.minWeight = (this.userHeight-100) * 0.9 - 5;
+                this.maxWeight = (this.userHeight-100) * 0.9 + 5;
+                console.log(`적정체중은 ${this.minWeight}에서 ${this.maxWeight} 사이입니다.`);
+                if(this.weight >= this.minWeight && this.weight <= this.maxWeight){
+                    return "정상 체중입니다.";
+                } else if(this.weight < this.minWeight) {
+                    return "표준 이하 체중입니다.";
+                } else {
+                    return "표준체중을 초과했습니다.";
+                }
+            }
+        }
+
+        var jang = new CheckWeight("장보리", 168, 62); //이름, 키, 몸무게
+        var park = new CheckWeight("박달재", 180, 88); //이름, 키, 몸무게
+        console.log(jang, typeof jang);
+        console.log(park, typeof park);
+
+        document.write(jang.getInfo(), "<br>");
+        document.write(jang.getResult(), "<br>");
+        document.write(park.getInfo(), "<br>");
+        document.write(park.getResult(), "<br>");
+    
+        
+        // var person = {}
+        // person.name="영희";
+        // person.height=170;
+        // this.getInfo = function(){
+        //     ...
+        // }
+        //var person = {
+        //     name: "철수",
+        //     age: "19",
+        //     gender: "남성",
+        //     info: function(){ // 메소드 : 객체 내부 함수
+        //         alert(this.name)
+        //     }
+        // }
+        // person.info();
+       
+
+
+    </script>
+</body>
+</html>
