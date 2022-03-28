@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또</title>
+</head>
+<body>
+    <h1>로또번호 생성</h1>
+
+    <button id="make5">생성하기 (x5)</button>
+    <button id="make1">생성하기 (x1)</button>
+
+    <script>
+        var make5BTN = document.querySelector("#make5");
+        
+        make5BTN.addEventListener("click", make5x);
+        
+        var lottoArr = [];
+        
+        function make1x(){
+            for(var i=0; i<6; i++){
+                lottoArr[i] = Math.ceil(Math.random()* 45);
+            }
+            console.log("========끝=======");
+            console.log(lottoArr);
+        }
+        function make5x(){
+            var lottoArr = [];
+            for(var i=0; i<6; i++){
+                for(var j=0; j<i; j++){
+                    lottoArr[i][j] = Math.ceil(Math.random() * 45);
+                }
+            }
+            console.log("========끝=======");
+            console.log(lottoArr);
+        }
+
+    </script>
+</body>
+</html>

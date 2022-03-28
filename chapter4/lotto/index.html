@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로또</title>
+</head>
+<body>
+    <h1>로또번호 생성</h1>
+    <!-- <button>색깔 바꾸기</button> -->
+    <script>
+    // p.131 함수
+    // 변수 vs 함수 : 데이터를 저장한 공간 vs 코드를 저장한 공간
+    // 1개의 데이터 vs 여러줄의 코드
+    // var vs function : 선언 키워드
+
+    // 객체 내부에 정의된 함수 : 메소드();
+    // 객체 내부에 정의된 변수 : 프로퍼티 (클래스 -멤버변수)
+
+    // 함수 정의법 - 가장 일반적인 방식
+    // function log() {
+    //     console.log("할일을 적어둡니다");
+    // }
+
+    // 함수 실행
+    //함수명();
+
+    // 함수 정의법 - 익명함수 (함수의 이름이 없음 -> 참조변수에 연결)
+    // var log2 = function() {
+    //     console.log("로그를 출력합니다");
+    // }
+
+    // log2(); // 참조변수(); - 호출(=실행)
+    
+    // 왜? 호이스팅(낚시바늘) 때문
+    // 일반적인 함수정의는 호이스팅에 의해서 어디서든 호출 가능
+    // 익명함수는 반드시 정의 후에 호출해야 함
+
+    // p.133 코딩해보세요
+    // var count = 0; // 카운트 -> 숫자를 셈 ex>방문횟수
+    
+    // myFnc(); // myFnc() 함수를 호출
+
+    // function myFnc(){
+    //     count++; // 증감 연산자 (단독 vs 대입연산자 사용시 차이)
+    //     document.write(`<p>hello, ${count}</p>`);
+    // }
+
+    // var theFnc = function(){
+    //     count++;
+    //     document.write(`<p>bye, ${count}</p>`);
+    // }
+    // theFnc(); // 익명함수, 정의보다 앞서서 호출(=실행)
+
+
+    // p.134 배경색 바꾸기
+    // 함수 정의문 + 클릭시마다 배경색 바뀌게
+    // var colors = ["white","yellow","aqua","purple"];
+    // var bodyTag = document.querySelector("body");
+    // var changeBTN = document.querySelector("button");
+    // var i = 0; // 조건, 반복문에서 변수를 짧게
+
+    // changeBTN.addEventListener("click", changeColor);
+    // function changeColor(){
+    //     i++; // 0 -> 1
+    //     if(i >= colors.length) i = 0;
+    //     bodyTag.style.backgroundColor = colors[i];
+    // }
+
+    // 랜덤으로
+    // var colors = ["white","yellow","aqua","purple"];
+    // var bodyTag = document.querySelector("body");
+    // var changeBTN = document.querySelector("button");
+    
+    // changeBTN.addEventListener("click", changeColor);
+    // // .console.dir(객체)
+    // function changeColor(){
+    //     bodyTag.style.backgroundColor = colors[Math.ceil(Math.random() * 3)];
+    //     console.log(bodyTag.style.backgroundColor);
+    // }
+    
+    // p.135 매개변수가 있는 함수 정의문
+    function multipication(x,y){
+        return x * y;
+    }
+    function plus(){
+       var sum = 0;
+       for(var i=0; i < arguments.length; i++){
+           sum += arguments[i];
+       }
+       return sum;
+    }
+    var result = plus(1,2,3,4,5,6,7,8,9,10);
+    document.write("1~10까지의 합 : "+result);
+    
+    </script>
+</body>
+</html>
